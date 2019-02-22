@@ -125,6 +125,8 @@ def run():
     paymentVolumePlot = Plot(58, 4, 216, 236, 264, tft.RED)
     externalMarketsVolumePlot = Plot(58, 4, 268, 236, 316, tft.PURPLE)
 
+    avgUSDXRPrate = 0
+
     while True:
 
         # Instantiate API
@@ -133,17 +135,19 @@ def run():
         # Get last 50 trades on Bitstamp
         exchanges = api.getExchanges(['XRP', 'USD+rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B'], {'limit': '50', 'descending': 'true'})
 
-        # Calculate XRP/USD price averaged by volume during the last 50 trades on Bitstamp
-        avgUSDXRPrate = 0
-        total_counter_amount = 0
+        if exchanges['result'] == 'success':
 
-        for i in exchanges['exchanges']:
+            # Calculate XRP/USD price averaged by volume during the last 50 trades on Bitstamp
+            avgUSDXRPrate = 0
+            total_counter_amount = 0
 
-            counter_amount = float(i['counter_amount'])
-            avgUSDXRPrate += float(i['rate']) * counter_amount
-            total_counter_amount += counter_amount
+            for i in exchanges['exchanges']:
 
-        avgUSDXRPrate /= total_counter_amount
+                counter_amount = float(i['counter_amount'])
+                avgUSDXRPrate += float(i['rate']) * counter_amount
+                total_counter_amount += counter_amount
+
+            avgUSDXRPrate /= total_counter_amount
 
         # Print XRP/USD price
         tft.text(tft.CENTER, 80, 'XRP/USD: {:.4f}'.format(avgUSDXRPrate), color=tft.GREEN)
