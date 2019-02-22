@@ -1,9 +1,9 @@
 # XRPL-monitor-ESP32
 XRPL monitor is a micropython script to monitor the XRP Ledger volume and price through a ESP32 board with a 2.4" screen attached. 
 
-[Imgur](https://i.imgur.com/i0DS0fm.jpg)
+![Imgur](https://i.imgur.com/i0DS0fm.jpg)
 
-[Imgur](https://i.imgur.com/zkVikQz.jpg)
+![Imgur](https://i.imgur.com/zkVikQz.jpg)
 
 # Hardware
 You will need the following hardware or equivalent (15$ approx plus shipping costs if they apply):
