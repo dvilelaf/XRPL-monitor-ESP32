@@ -24,14 +24,20 @@ Loboris has a wiki[ a wiki](https://github.com/loboris/MicroPython_ESP32_psRAM_L
 * Download or clone[ Loboris' MicroPython firmware for the ESP32 ](https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo), and unzip it.
 
 * Open a terminal and change directory to the firmware's location: 
-```cd .../MicroPython_ESP32_psRAM_LoBo-master/MicroPython_BUILD/firmware/esp32_psram_all_bt/```
+  ```bash
+  cd .../MicroPython_ESP32_psRAM_LoBo-master/MicroPython_BUILD/firmware/esp32_psram_all_bt/
+  ```
 
 
 * Plug the board to your computer's USB port, and get your device location (usually /dev/ttyUSB0):
-```ls /dev/ttyUSB*```
+  ```bash
+  ls /dev/ttyUSB*
+  ```
 
 * Flash the firmware:
-```../flash.sh -p dev/ttyUSB0```
+  ```bash
+  ../flash.sh -p dev/ttyUSB0
+  ```
 
 ## Install XRPL monitor
 
@@ -40,12 +46,18 @@ Loboris has a wiki[ a wiki](https://github.com/loboris/MicroPython_ESP32_psRAM_L
 * Edit the file **boot.py** to set your wifi ESSID (the network's name) and its password instead of < WIFI_ESSID > and < WIFI_PASSWORD >.
 
 * Install rshell (you'll need the python3-pip package):
-```sudo pip3 install rshell```
+  ```bash
+  sudo pip3 install rshell
+  ```
 
 * Reset your ESP32 device with the reset button, and connect into it with rshell:
-```rshell --buffer-size=30 -p /dev/ttyUSB0``` 
+  ```bash
+  rshell --buffer-size=30 -p /dev/ttyUSB0
+  ``` 
 
 * Copy the needed files into the ESP32: *boot.py, consola18.fon, RippleDataAPI.py, xrp.jpg, xrp_basic.jpg and XRPLmonitor.py*
-```cp <file_name> /pyboard/flash```
+  ```bash
+  cp <file_name> /pyboard/flash
+  ```
 
 * Reset your ESP32 device
