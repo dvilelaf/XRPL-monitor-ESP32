@@ -149,8 +149,8 @@ def run():
 
             avgUSDXRPrate /= total_counter_amount
 
-        # Print XRP/USD price
-        tft.text(tft.CENTER, 80, 'XRP/USD: {:.4f}'.format(avgUSDXRPrate), color=tft.GREEN)
+            # Print XRP/USD price
+            tft.text(tft.CENTER, 80, 'XRP/USD: {:.4f}'.format(avgUSDXRPrate), color=tft.GREEN)
 
         # Get and print exchange  volume
         exchangeVolumes = api.getExchangeVolume()
