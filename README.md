@@ -24,7 +24,6 @@ Loboris has a wiki[ a wiki](https://github.com/loboris/MicroPython_ESP32_psRAM_L
 * Download or clone[ Loboris' MicroPython firmware for the ESP32 ](https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo), and unzip it.
 
 * Open a terminal and change directory to the firmware's location: 
-
 ```cd .../MicroPython_ESP32_psRAM_LoBo-master/MicroPython_BUILD/firmware/esp32_psram_all_bt/```
 
 
