@@ -17,7 +17,17 @@ class RippleDataAPI:
 
         parameters = '&'.join([qp + '=' + queryParams[qp] for qp in queryParams])
 
-        return urequests.get(endpoint + '?' + parameters).json()
+        try:
+
+            result = urequests.get(endpoint + '?' + parameters).json()
+
+        except:
+
+            result = {'result': 'error'}
+
+        finally:
+
+            return result
 
 
     def getExchangeVolume(self, queryParams={}):
