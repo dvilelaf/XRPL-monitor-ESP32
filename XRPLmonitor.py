@@ -66,13 +66,20 @@ class Plot:
         self.data.append(newData)
 
         # Update max and min values
-        if newData > self.maxVal:
-            self.maxVal = newData
 
-        if newData < self.minVal:
-            self.minVal = newData
+        # OptionA: scale bars according to the whole history
+        # if newData > self.maxVal:
+        #     self.maxVal = newData
 
-        # Recalculate scale factor 
+        # if newData < self.minVal:
+        #     self.minVal = newData
+
+        # OptionB: scale bars according to the current displayed data
+        notNoneData = [i for i in self.data if i is not None]
+        self.maxVal = max(notNoneData)
+        self.minVal = min(notNoneData)
+
+        # Recalculate scale factor: 20% of the plot height is reserved for the minimum bar height
         if self.maxVal != self.minVal:
             self.scale = 0.8 * self.limitHeight / (self.maxVal - self.minVal)
 
@@ -91,7 +98,7 @@ class Plot:
         # Shift data to fit min value with zero
         shiftedData = [None if i is None else (i - self.minVal) for i in self.data]
 
-        # Draw bars: shortest bar will fit 20% of the height and tallest one the 100%
+        # Draw bars: 20% of the plot height is the minimum bar height
         for i in shiftedData:
             if i is not None:
                 barHeight = int(round(0.2 * self.limitHeight + self.scale * i))
